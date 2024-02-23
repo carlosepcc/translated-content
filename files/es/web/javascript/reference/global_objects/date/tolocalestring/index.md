@@ -9,27 +9,27 @@ El método **`toLocaleString()`** devuelve un cadena con la representación al i
 
 {{EmbedInteractiveExample("pages/js/date-tolocalestring.html")}}
 
-## Syntax
+## Sintaxis
 
 ```
 dateObj.toLocaleString([locales[, options]])
 ```
 
-### Parametros
+### Parámetros
 
-Los argumentos `locales` y de `options` personalizan el comportamiento de la función y permiten que las aplicaciones especifiquen el lenguaje cuyas convenciones de formato deben ser utilizadas. En las implementaciones, que ignoran los argumentos, `locales` y `options`, el locale utilizado y la forma de la cadena devuelta dependen totalmente de la implementación.
+Los argumentos `locales` y de `options` personalizan el comportamiento de la función y permiten que las aplicaciones especifiquen el lenguaje cuyas convenciones de formato deben ser utilizadas. En las implementaciones que ignoran los argumentos `locales` y `options`, el locale utilizado y la forma de la cadena devuelta dependen totalmente de la implementación.
 
-Vea el [constructor](/es/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/DateTimeFormat) de [`Intl.DateTimeFormat()`](/es/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/DateTimeFormat) para detalles en esos parametros y como se usan.
+Vea el [constructor](/es/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/DateTimeFormat) de [`Intl.DateTimeFormat()`](/es/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat/DateTimeFormat) para detalles en esos parametros y cómo se usan.
 
-El valor por defecto para cada componente `date-time` es {{jsxref("undefined")}}, pero si las propiedades `weekday`, `year`, `month`, `day` son todas {{jsxref("undefined")}}, entonces `year`, `month`, y `day` son asumidas como `"numeric"`.
+El valor por defecto para cada componente `date-time` es {{jsxref("undefined")}}, pero si las propiedades `weekday`, `year`, `month`, `day` son todas {{jsxref("undefined")}}, entonces `year`, `month`, y `day` son presumidas como `"numeric"`.
 
-### Return value
+### Valor de retorno
 
-A string representing the given date according to language-specific conventions.
+Una cadena que representa la fecha dada de acuerdo a las convenciones específicas del idioma. 
 
-## Examples
+## Ejemplos
 
-### Using `toLocaleString()`
+### Usando `toLocaleString()`
 
 In basic use without specifying a locale, a formatted string in the default locale and with default options is returned.
 
@@ -42,7 +42,7 @@ console.log(date.toLocaleString());
 // → "12/11/2012, 7:00:00 PM" if run in en-US locale with time zone America/Los_Angeles
 ```
 
-### Checking for support for `locales` and `options` arguments
+### Verificando el soporte para los argumentos `locales` y `options`
 
 The `locales` and `options` arguments are not supported in all browsers yet. To check whether an implementation supports them already, you can use the requirement that illegal language tags are rejected with a {{jsxref("RangeError")}} exception:
 
@@ -57,7 +57,7 @@ function toLocaleStringSupportsLocales() {
 }
 ```
 
-### Using `locales`
+### Usando `locales`
 
 This example shows some of the variations in localized date and time formats. In order to get the format of the language used in the user interface of your application, make sure to specify that language (and possibly some fallback languages) using the `locales` argument:
 
@@ -94,7 +94,7 @@ console.log(date.toLocaleString(["ban", "id"]));
 // → "20/12/2012 11.00.00"
 ```
 
-### Using `options`
+### Usando `options`
 
 The results provided by `toLocaleString()` can be customized using the `options` argument:
 
@@ -122,7 +122,7 @@ console.log(date.toLocaleString("en-US", { hour12: false }));
 // → "12/19/2012, 19:00:00"
 ```
 
-### Avoid comparing formatted date values to static values
+### Evite comparar valores de fecha con formato con valores estáticos
 
 Most of the time, the formatting returned by `toLocaleString()` is consistent. However, this might change in the future and isn't guaranteed for all languages — output variations are by design and allowed by the specification. Most notably, the IE and Edge browsers insert bidirectional control characters around dates, so the output text will flow properly when concatenated with other text.
 
@@ -137,7 +137,7 @@ For this reason you cannot expect to be able to compare the results of `toLocale
 
 > **Nota:** See also this [StackOverflow thread](https://stackoverflow.com/questions/25574963/ies-tolocalestring-has-strange-characters-in-results) for more details and examples.
 
-## Performance
+## Rendimiento
 
 When formatting large numbers of dates, it is better to create an {{jsxref("Global_Objects/DateTimeFormat", "Intl.DateTimeFormat")}} object and use the function provided by its {{jsxref("DateTimeFormat.prototype.format", "format")}} property.
 
@@ -149,7 +149,7 @@ When formatting large numbers of dates, it is better to create an {{jsxref("Glob
 
 {{Compat}}
 
-## See also
+## Véase también
 
 - {{jsxref("Global_Objects/DateTimeFormat", "Intl.DateTimeFormat")}}
 - {{jsxref("Date.prototype.toLocaleDateString()")}}
